@@ -5,7 +5,6 @@ from Retrieve import Retrieve
 from transformQuery import correctQuery
 from CheakResult import cheakResults,route_from_decision
 from output import ShowOutput
-# from internetSearch import SearchInternet
 # import time
 
 # start_time = time.time()

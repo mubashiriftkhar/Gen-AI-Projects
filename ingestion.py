@@ -41,8 +41,8 @@ def generate_pdf_chunks(pdf, chunk_size=500, chunk_overlap=50):
         print(f"[DONE] Generated {len(all_docs)} chunks of PDF '{pdf}'")
         return all_docs
 
-dense_index_name = "legal-tech-dense-for-hybrid-search"
-sparse_index_name = "legal-tech-sparse-for-hybrid-search"
+dense_index_name = os.getenv("pineconeDense_index_name")
+sparse_index_name = os.getenv("pineconeSparse_index_name")
 
 if not pc.has_index(dense_index_name):
     pc.create_index_for_model(
@@ -78,8 +78,8 @@ def ingestRecords(pdfFiles):
 
         # Batch the records to avoid exceeding Pinecone’s limit
         for batch in chunk_list(records, 96):
-            dense_index.upsert_records("all-over-world", batch)
-            sparse_index.upsert_records("all-over-world", batch)
+            dense_index.upsert_records(os.getenv("pineconeNameSpace"), batch)
+            sparse_index.upsert_records(os.getenv("pineconeNameSpace"), batch)
 
 if __name__ == "__main__":
     pdf_dir = "DataSets"
