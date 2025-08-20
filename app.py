@@ -10,16 +10,9 @@ import random
 
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Startup code
-    app.state.graph = GraphBuilder()  # compile your LangGraph once
-    print("Graph initialized, LLM client ready")
-    yield
-    # Shutdown code
-    print("Shutting down app...")
 
-app = FastAPI(lifespan=lifespan)
+graph=GraphBuilder()
+app = FastAPI()
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
@@ -116,7 +109,7 @@ async def process_research_query(request: QueryRequest):
     "retrievedDocs": [],
     "finalOutput": ""
 }
-    response=app.state.graph.invoke(input=inputState)
+    response=graph.invoke(input=inputState)
     return{"inner_html":response['finalOutput']}
 
 if __name__ == "__main__":
