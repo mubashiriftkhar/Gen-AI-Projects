@@ -1,2 +1,2 @@
 # Gen-AI-Projects
-These Repo Contains Gen AI Applications
+These Repo Contains Gen AI 
