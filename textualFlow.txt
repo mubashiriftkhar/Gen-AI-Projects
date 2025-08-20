@@ -1,0 +1,29 @@
+User Query
+   ↓
+[Step 1: Pre-Processing]
+   - Clean & normalize query
+   - Detect legal entities, keywords
+
+   ↓
+[Step 2: Initial Retrieval]
+   - Use Hybrid Search (BM25 + Vector Search)
+   - Get top N passages from legal KB
+
+   ↓
+[Step 3: Draft Answer Generation]
+   - LLM generates answer based on retrieved context
+
+   ↓
+[Step 4: Corrective Layer]
+   - Fact-check answer against original KB
+   - If inconsistencies found → re-retrieve & regenerate
+   - Optionally use a smaller LLM as a verifier
+
+   ↓
+[Step 5: Confidence Scoring]
+   - Assign confidence score based on semantic similarity & citation match
+
+   ↓
+[Step 6: Final Response]
+   - Deliver corrected answer + cited sources
+   - Include “confidence badge” for transparency

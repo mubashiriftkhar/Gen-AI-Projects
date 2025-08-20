@@ -1,0 +1,24 @@
+langgraph
+langchain
+langchain-community
+langchain-cohere
+cohere
+openai
+# spacy
+# https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+fastapi
+uvicorn
+dotenv
+graphviz
+bs4
+selenium
+pydantic
+pytesseract
+fitz
+pdf2image
+PyMuPDF
+pinecone
+aiofiles
+pypdf
+sentence_transformers
+numpy
